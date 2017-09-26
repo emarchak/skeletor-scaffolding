@@ -2,3 +2,39 @@
  * @file
  * Presentation-specific styles.
  */
+
+hr {
+  border: 0;
+  border-top: 1px solid #fff;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  opacity: 0.5;
+}
+
+.list-extra-space li {
+  padding-bottom: 0.5em;
+}
+
+span.semibold {
+  font-weight: 600;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.flex-row figure {
+    width: 50%;
+}
+
+.opacity-70 {
+    opacity: 0.7;
+}
+
+.margin-top-0 {
+    margin-top: 0 !important;
+}
+
+.margin-bottom-0 {
+    margin-bottom: 0 !important;
+}
