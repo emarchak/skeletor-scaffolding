@@ -60,9 +60,9 @@
 						<h1>What we'll talk about</h1>
 						<ol class="description">
 							<li>Building a Progressively Decoupled site with Skeletor</li>
-							<li>Test for data consistency with JSON Schema</li>
 							<li>Continuous Integration for Progressive Decoupling</li>
 							<li>Unit testing React components in Drupal</li>
+							<li>Test for data consistency with JSON Schema</li>
 						</ol>
 
 					</div>
@@ -114,221 +114,12 @@
 					</div>
 				</section>
 
-				<!-- JSON Schema. -->
-				<section class="subsection color--radiant" id="subsection--json">
-					<div class="grid-wrapper">
-						<div class="header">
-							<div class="logo"></div>
-							<div class="section">2. JSON Schema</div>
-						</div>
-						<h1>Test for data consistency with JSON Schema</h1>
-						<div class="description"></div>
-					</div>
-				</section>
-
-				<!-- JSON Schema slide #2 -->
-				<section class="subsection color--radiant" id="subsection--json--s2">
-					<div class="grid-wrapper">
-						<div class="header">
-							<div class="logo"></div>
-							<div class="section">2. JSON Schema</div>
-						</div>
-						<div>
-							<h1>Problem</h1>
-							<p>Javascript is not a strongly typed language, and as a frontend developer you need to rely on additional tools which will allow you to develop stable apps with Javascript.</p>
-						</div>
-					</div>
-				</section>
-
-				<!-- JSON Schema slide #2.1 -->
-				<section class="subsection color--radiant" id="subsection--json--s21">
-					<div class="grid-wrapper">
-						<div class="header">
-							<div class="logo"></div>
-							<div class="section">2. JSON Schema</div>
-						</div>
-						<div>
-							<h1>Problem</h1>
-							<p>Javascript is not a strongly typed language, and as a frontend developer you need to rely on additional tools which will allow you to develop stable apps with Javascript.</p>
-							<hr/>
-							<h1>Solution</h1>
-							<p>We recommend to consider using JSON schema validation if JSON is your communication protocol.</p>
-						</div>
-					</div>
-				</section>
-
-				<!-- JSON Schema slide #3 -->
-				<section class="subsection color--radiant" id="subsection--json--s3">
-					<div class="grid-wrapper">
-						<div class="header">
-							<div class="logo"></div>
-							<div class="section">2. JSON Schema</div>
-						</div>
-						<div>
-							<h1>JSON Schema validators</h1>
-							<p>There are a lot of implementations for JSON Schema validators in javascript.</p>
-							<ul class="list-extra-space">
-								<li><span class="semibold">ajv</span> (MIT)</li>
-								<li><span class="semibold">djv</span> (MIT)</li>
-								<li><span class="semibold">jsonschema</span> (MIT)</li>
-								<li><span class="semibold">is-my-json-valid</span> (MIT)</li>
-								<li><span class="semibold">tv4</span> (MIT)</li>
-								<li><span class="semibold">JaySchema</span> (MIT)</li>
-								<li><span class="semibold">z-schema</span> (MIT)</li>
-								<li>...</li>
-							</ul>
-						</div>
-						<hr>
-						<cite>http://json-schema.org/implementations.html#validator-javascript</cite>
-					</div>
-				</section>
-				<section class="code color--radiant" id="subsection--json--s4">
-					<div class="grid-wrapper">
-						<div class="header">
-							<div class="logo"></div>
-							<div class="section">2. JSON Schema</div>
-						</div>
-						<div class="flex-row">
-							<figure class="code">
-								<!--
-									Code highlighting is performed by highlight.js
-
-									Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-									If showing an HTML example, add the data-escape attribute to the code element.
-								-->
-								<pre><code class="lang-json">
-									{
-										"attendees" : [
-											{
-												"id": 1001,
-												"title": "Mr.",
-												"firstName": "John",
-												"lastName": "Smith",
-												"bio": "lorem ipsum...",
-												"presenter": true
-											},
-											{
-												"id": 1002,
-												"title": "Ms.",
-												"firstName": "James",
-												"lastName": "Noname",
-												"bio": "lorem ipsum...",
-												"presenter": false
-											},
-											...
-										]
-									}
-								</code></pre>
-								<!-- figcaption element is optional, can be placed above or below code  -->
-								<figcaption class="path">mydomain/attendees</figcaption>
-							</figure>
-
-							<figure class="code">
-								<!--
-									Code highlighting is performed by highlight.js
-
-									Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-									If showing an HTML example, add the data-escape attribute to the code element.
-								-->
-								<pre><code class="lang-json">
-									{
-										"properties": {
-											"attendees": {
-												"type": "array",
-												"items": {
-													"type": "object",
-													"properties": {
-														"id" : {"type": "integer"},
-														"title" : {"type": "string"},
-														"firstName" : {"type": "string"},
-														"lastName" : {"type": "string"},
-														"bio" : {"type": "string"},
-														"presenter" : {"type": "boolean"}
-													},
-													"required": ["id", "firstName", "lastName"]
-												}
-											}
-										}
-									}
-								</code></pre>
-								<!-- figcaption element is optional, can be placed above or below code  -->
-								<figcaption class="path">/schemas/attendeesSchema.json</figcaption>
-							</figure>
-						</div>
-					</div>
-				</section>
-				<section class="code color--radiant" id="subsection--json--s5">
-					<div class="grid-wrapper">
-						<div class="header">
-							<div class="logo"></div>
-							<div class="section">2. JSON Schema</div>
-						</div>
-						<figure class="code">
-							<!--
-								Code highlighting is performed by highlight.js
-
-								Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-								If showing an HTML example, add the data-escape attribute to the code element.
-							-->
-							<pre><code class="lang-javascript">
-								export function getAttendees() {
-									return function (dispatch, getState) {
-										let endpointId = 'attendees'
-										let endpoint = apiEndpoints[endpointId] //import { apiEndpoints } from '../constants/endpoints'
-										dispatch(getDataPending())
-
-										axios({
-											url: endpoint.url,
-											method: endpoint.method,
-											timeout: endpoint.timeout
-										})
-										.then(res => {
-											// Validate response data.
-											var validate = ajv.compile(attendeesSchema) // import Ajv from 'ajv'; let ajv = Ajv({allErrors: true});
-											var valid = validate(res.data)
-											if (!valid) {
-												getDataFail('Error fetching the data', validate.errors)
-											}
-											else {
-												dispatch(getDataSuccess(res.data.attendees))
-											}
-										.catch(err => {
-											getDataFail('Error fetching the data')
-										});
-									}
-								}
-							</code></pre>
-							<!-- figcaption element is optional, can be placed above or below code  -->
-							<figcaption class="path">actions/attendeesActions.js</figcaption>
-						</figure>
-					</div>
-				</section>
-				<!-- JSON Schema slide #3 -->
-				<section class="subsection color--radiant" id="subsection--json--s7">
-					<div class="grid-wrapper">
-						<div class="header">
-							<div class="logo"></div>
-							<div class="section">2. JSON Schema</div>
-						</div>
-						<div>
-							<h1>Summary</h1>
-							<br/><br/>
-							<ul class="list-extra-space">
-								<li>We have seen how we can use JSON schema validation to make sure that React app receives data in the expected format.</li>
-								<li>We can make our React app report the problem with the data back to the Drupal.</li>
-								<li>We can make our React app to massage the data on the entry point of our app and perform the conversions and re-validate data again.</li>
-								<li>And speaking about data validity, consider always using React PropTypes for the component where data type might be a concern.</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-
 				<!-- Continuous Integration. -->
 				<section class="subsection color--midnight" id="subsection--continuous-integration">
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
-							<div class="section">3. Continuous Integration</div>
+							<div class="section">2. Continuous Integration</div>
 						</div>
 						<h1>Continuous Integration for Progressive Decoupling</h1>
 						<div class="description"></div>
@@ -343,7 +134,7 @@
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
-							<div class="section">4. Unit Testing</div>
+							<div class="section">3. Unit Testing</div>
 						</div>
 						<h1>Unit testing React components in Drupal</h1>
 						<div class="description"></div>
@@ -354,7 +145,7 @@
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
-							<div class="section">4. Unit Testing</div>
+							<div class="section">3. Unit Testing</div>
 						</div>
 						<div>
 						<h1>Moving parts of React + Redux app</h1>
@@ -381,7 +172,7 @@
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
-							<div class="section">4. Unit Testing</div>
+							<div class="section">3. Unit Testing</div>
 						</div>
 						<div>
 							<h1>Jest</h1>
@@ -402,7 +193,7 @@
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
-							<div class="section">4. Unit Testing</div>
+							<div class="section">3. Unit Testing</div>
 						</div>
 						<div>
 							<h1>Enzyme</h1>
@@ -421,7 +212,7 @@
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
-							<div class="section">4. Unit Testing</div>
+							<div class="section">3. Unit Testing</div>
 						</div>
 						<div>
 							<div class="flex-row">
@@ -512,7 +303,7 @@
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
-							<div class="section">4. Unit Testing</div>
+							<div class="section">3. Unit Testing</div>
 						</div>
 						<div>
 							<div class="flex-row">
@@ -608,7 +399,7 @@
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
-							<div class="section">4. Unit Testing</div>
+							<div class="section">3. Unit Testing</div>
 						</div>
 						<div>
 							<div class="flex-row">
@@ -698,7 +489,7 @@
 						<div class="grid-wrapper">
 							<div class="header">
 								<div class="logo"></div>
-								<div class="section">4. Unit Testing</div>
+								<div class="section">3. Unit Testing</div>
 							</div>
 							<div>
 								<h5>Test results: Success</h5>
@@ -733,7 +524,7 @@
 						<div class="grid-wrapper">
 							<div class="header">
 								<div class="logo"></div>
-								<div class="section">4. Unit Testing</div>
+								<div class="section">3. Unit Testing</div>
 							</div>
 							<div>
 								<h5>Test results: Failed</h5>
@@ -778,7 +569,7 @@
 						<div class="grid-wrapper">
 							<div class="header">
 								<div class="logo"></div>
-								<div class="section">4. Unit Testing</div>
+								<div class="section">3. Unit Testing</div>
 							</div>
 							<div>
 								<h5>Test results: Coverage report</h5>
@@ -838,6 +629,222 @@ All files                    |    88.46 |    88.89 |    77.78 |    88.46 |      
 									</ul>
 								</li>
 								<li>Covertage report.</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<!-- JSON Schema: BEGIN -->
+
+				<!-- JSON Schema: Slide 1 -->
+				<section class="subsection color--radiant" id="subsection--json--s1">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">4. JSON Schema</div>
+						</div>
+						<h1>Test for data consistency with JSON Schema</h1>
+						<div class="description"></div>
+					</div>
+				</section>
+
+				<!-- JSON Schema: Slide 2 -->
+				<section>
+					<section class="subsection color--radiant" id="subsection--json--s2">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section color--white">2. JSON Schema</div>
+							</div>
+							<div>
+								<h1>Problem</h1>
+								<p>Javascript is not a strongly typed language, and as a frontend developer you need to rely on additional tools which will allow you to develop stable apps with Javascript.</p>
+							</div>
+						</div>
+					</section>
+					<section class="subsection color--radiant" id="subsection--json--s21">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section color--white">2. JSON Schema</div>
+							</div>
+							<div>
+								<h1>Problem</h1>
+								<p>Javascript is not a strongly typed language, and as a frontend developer you need to rely on additional tools which will allow you to develop stable apps with Javascript.</p>
+								<hr/>
+								<h1>Solution</h1>
+								<p>We recommend to consider using JSON schema validation if JSON is your communication protocol.</p>
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<!-- JSON Schema slide #3 -->
+				<section class="subsection color--radiant" id="subsection--json--s3">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">4. JSON Schema</div>
+						</div>
+						<div>
+							<h1>JSON Schema validators</h1>
+							<p>There are a lot of implementations for JSON Schema validators in javascript.</p>
+							<ul class="list-extra-space">
+								<li><span class="semibold">ajv</span> (MIT)</li>
+								<li><span class="semibold">djv</span> (MIT)</li>
+								<li><span class="semibold">jsonschema</span> (MIT)</li>
+								<li><span class="semibold">is-my-json-valid</span> (MIT)</li>
+								<li><span class="semibold">tv4</span> (MIT)</li>
+								<li><span class="semibold">JaySchema</span> (MIT)</li>
+								<li><span class="semibold">z-schema</span> (MIT)</li>
+								<li>...</li>
+							</ul>
+						</div>
+						<hr>
+						<cite>http://json-schema.org/implementations.html#validator-javascript</cite>
+					</div>
+				</section>
+				<section class="code color--radiant" id="subsection--json--s4">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">4. JSON Schema</div>
+						</div>
+						<div class="flex-row">
+							<figure class="code">
+								<!--
+									Code highlighting is performed by highlight.js
+
+									Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
+									If showing an HTML example, add the data-escape attribute to the code element.
+								-->
+								<pre><code class="lang-json">
+									{
+										"attendees" : [
+											{
+												"id": 1001,
+												"title": "Mr.",
+												"firstName": "John",
+												"lastName": "Smith",
+												"bio": "lorem ipsum...",
+												"presenter": true
+											},
+											{
+												"id": 1002,
+												"title": "Ms.",
+												"firstName": "James",
+												"lastName": "Noname",
+												"bio": "lorem ipsum...",
+												"presenter": false
+											},
+											...
+										]
+									}
+								</code></pre>
+								<!-- figcaption element is optional, can be placed above or below code  -->
+								<figcaption class="path">mydomain/attendees</figcaption>
+							</figure>
+
+							<figure class="code">
+								<!--
+									Code highlighting is performed by highlight.js
+
+									Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
+									If showing an HTML example, add the data-escape attribute to the code element.
+								-->
+								<pre><code class="lang-json">
+									{
+										<span class="opacity-30">"$schema": "http://json-schema.org/draft-04/schema#",</span>
+										<span class="opacity-30">"id": "...?_format=schema_json&_describes=api_json",</span>
+										<span class="opacity-30">"title": "node:attendee Schema",</span>
+										<span class="opacity-30">"description": "Describes the payload for 'node' entities of the 'attendee' bundle.",</span>
+										"type": "object",
+										"properties": {
+											"attendees": {
+												"type": "array",
+												"items": {
+													"type": "object",
+													"properties": {
+														"id" : {"type": "integer"},
+														"title" : {"type": "string"},
+														"firstName" : {"type": "string"},
+														"lastName" : {"type": "string"},
+														"bio" : {"type": "string"},
+														"presenter" : {"type": "boolean"}
+													},
+													"required": ["id", "firstName", "lastName"]
+												}
+											}
+										}
+									}
+								</code></pre>
+								<!-- figcaption element is optional, can be placed above or below code  -->
+								<figcaption class="path">/schemas/attendeesSchema.json</figcaption>
+							</figure>
+						</div>
+					</div>
+				</section>
+				<section class="code color--radiant" id="subsection--json--s5">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">4. JSON Schema</div>
+						</div>
+						<figure class="code">
+							<!--
+								Code highlighting is performed by highlight.js
+
+								Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
+								If showing an HTML example, add the data-escape attribute to the code element.
+							-->
+							<pre><code class="lang-javascript">
+								export function getAttendees() {
+									return function (dispatch, getState) {
+										let endpointId = 'attendees'
+										let endpoint = apiEndpoints[endpointId] //import { apiEndpoints } from '../constants/endpoints'
+										dispatch(getDataPending())
+
+										axios({
+											url: endpoint.url,
+											method: endpoint.method,
+											timeout: endpoint.timeout
+										})
+										.then(res => {
+											// Validate response data.
+											var validate = ajv.compile(attendeesSchema) // import Ajv from 'ajv'; let ajv = Ajv({allErrors: true});
+											var valid = validate(res.data)
+											if (!valid) {
+												getDataFail('Error fetching the data', validate.errors)
+											}
+											else {
+												dispatch(getDataSuccess(res.data.attendees))
+											}
+										.catch(err => {
+											getDataFail('Error fetching the data')
+										});
+									}
+								}
+							</code></pre>
+							<!-- figcaption element is optional, can be placed above or below code  -->
+							<figcaption class="path">actions/attendeesActions.js</figcaption>
+						</figure>
+					</div>
+				</section>
+				<!-- JSON Schema slide #3 -->
+				<section class="subsection color--radiant" id="subsection--json--s7">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">4. JSON Schema</div>
+						</div>
+						<div>
+							<h1>Summary</h1>
+							<br/><br/>
+							<ul class="list-extra-space">
+								<li>We have seen how we can use JSON schema validation to make sure that React app receives data in the expected format.</li>
+								<li>We can make our React app report the problem with the data back to the Drupal.</li>
+								<li>We can make our React app to massage the data on the entry point of our app and perform the conversions and re-validate data again.</li>
+								<li>And speaking about data validity, consider always using React PropTypes for the component where data type might be a concern.</li>
 							</ul>
 						</div>
 					</div>

@@ -28,6 +28,10 @@ span.semibold {
     width: 48%;
 }
 
+.opacity-30 {
+    opacity: 0.3;
+}
+
 .opacity-70 {
     opacity: 0.7;
 }
@@ -43,6 +47,10 @@ span.semibold {
 .reveal blockquote.stick-left {
     margin: 20px 0;
     padding: 20px;
+}
+
+.color--white {
+    color: #fff !important;
 }
 
 /* Sprints */
