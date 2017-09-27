@@ -336,7 +336,9 @@
 				</section>
 
 
-				<!-- Unit Testing. -->
+				<!-- Unit Testing: BEGIN -->
+
+				<!-- Unit Testing: Slide #1 -->
 				<section class="subsection color--dark" id="subsection--unit-testing-s1">
 					<div class="grid-wrapper">
 						<div class="header">
@@ -347,7 +349,7 @@
 						<div class="description"></div>
 					</div>
 				</section>
-				<!-- Unit Testing. -->
+				<!-- Unit Testing: Slide #2 -->
 				<section class="subsection color--dark" id="subsection--unit-testing-s2">
 					<div class="grid-wrapper">
 						<div class="header">
@@ -360,7 +362,7 @@
 						<ul class="list-extra-space">
 							<li>
 								<h5 class="margin-bottom-0">Components</h5>
-								<p class="margin-top-0 opacity-70">We want to make sure that component behave as expected when new features has been added to it or model has been changed.</p>
+								<p class="margin-top-0 opacity-70">We want to make sure that component behaves as expected when new features have been added to it or model has been changed.</p>
 							</li>
 							<li>
 								<h5 class="margin-bottom-0">Actions</h5>
@@ -374,8 +376,8 @@
 						</div>
 					</div>
 				</section>
-				<!-- Unit Testing. -->
-				<section class="subsection color--dark" id="subsection--unit-testing-s4">
+				<!-- Unit Testing: Slide #3 -->
+				<section class="subsection color--dark" id="subsection--unit-testing-s3">
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
@@ -384,7 +386,7 @@
 						<div>
 							<h1>Jest</h1>
 							<br/><br/>
-							<blockquote>“Jest is used by Facebook to test all JavaScript code including React applications. One of Jest's philosophies is to provide an integrated "zero-configuration" experience. We observed that when engineers are provided with ready-to-use tools, they end up writing more tests, which in turn results in more stable and healthy code bases.”</blockquote>
+							<blockquote class="stick-left">“Jest is used by Facebook to test all JavaScript code including React applications. One of Jest's philosophies is to provide an integrated "zero-configuration" experience. We observed that when engineers are provided with ready-to-use tools, they end up writing more tests, which in turn results in more stable and healthy code bases.”</blockquote>
 							<br/>
 							<ul class="list-extra-space">
 								<li>Simple configuration.</li>
@@ -395,8 +397,8 @@
 						</div>
 					</div>
 				</section>
-				<!-- Unit Testing. -->
-				<section class="subsection color--dark" id="subsection--unit-testing-s5">
+				<!-- Unit Testing: Slide #4 -->
+				<section class="subsection color--dark" id="subsection--unit-testing-s4">
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
@@ -405,7 +407,7 @@
 						<div>
 							<h1>Enzyme</h1>
 							<br/><br/>
-							<blockquote>Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.</blockquote>
+							<blockquote class="stick-left">Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.</blockquote>
 							<br/>
 							<ul class="list-extra-space">
 								<li>jQuery like API to work with rendered components.</li>
@@ -414,102 +416,18 @@
 						</div>
 					</div>
 				</section>
-				<!-- Unit Testing. -->
-				<section class="subsection color--dark" id="subsection--unit-testing-s7">
+				<!-- Unit Testing: Slide #5 -->
+				<section class="subsection color--dark" id="subsection--unit-testing-s5">
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
 							<div class="section">4. Unit Testing</div>
 						</div>
 						<div>
-							<h5>Testing component</h5>
 							<div class="flex-row">
-								<figure class="code">
-									<!--
-                                        Code highlighting is performed by highlight.js
-
-                                        Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-                                        If showing an HTML example, add the data-escape attribute to the code element.
-                                    -->
-									<pre><code class="lang-javascript">
-										import React, { Component } from 'react';
-										import PropTypes from 'prop-types';
-										import AttendeeCard from '../AttendeeCard/AttendeeCard';
-
-										class AttendeesList extends Component {
-											render() {
-												return (
-													&lt;div classname="attendees-list"&gt;
-														{this.props.data.map((elem, key) => {
-															return (
-																&lt;AttendeeCard
-																		key={key}
-																		{...elem}
-																/&gt;
-															)
-														})}
-													&lt;/div&gt;
-												)
-											}
-										}
-
-										AttendeesList.propTypes = {
-											data: PropTypes.array
-										};
-
-										export default AttendeesList;
-									</code></pre>
-									<!-- figcaption element is optional, can be placed above or below code  -->
-									<figcaption class="path">components/AttendeesList/AttendeesList.js</figcaption>
-								</figure>
-								<figure class="code">
-									<!--
-										Code highlighting is performed by highlight.js
-
-										Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-										If showing an HTML example, add the data-escape attribute to the code element.
-									-->
-									<pre><code class="lang-javascript">
-										import React from 'react';
-										import {shallow, render, mount} from 'enzyme';
-										import AttendeesList from './AttendeesList';
-
-										test('Attendees list rendered', () => {
-											let data = [{
-												id: 1,
-												firstName: 'John',
-												lastname: 'Smith'
-											}, {
-												id: 2,
-												firstName: 'Peter',
-												lastName: 'Noname'
-											}]
-
-											const wrapper = mount(
-												&lt;AttendeesList
-													data={data}
-												/&gt;
-											);
-
-											expect(wrapper.find('.attendee-card')).toHaveLength(2);
-										});
-									</code></pre>
-									<!-- figcaption element is optional, can be placed above or below code  -->
-									<figcaption class="path">components/AttendeesList/AttendeesList.test.js</figcaption>
-								</figure>
+								<figure><h5 style="margin:0;">Component</h5></figure>
+								<figure><h5 style="margin:0;">Test file</h5></figure>
 							</div>
-						</div>
-					</div>
-				</section>
-				<!-- Unit Testing. -->
-				<section class="subsection color--dark" id="subsection--unit-testing-s8">
-					<div class="grid-wrapper">
-						<div class="header">
-							<div class="logo"></div>
-							<div class="section">4. Unit Testing</div>
-						</div>
-						<div>
-							<h5>And another component</h5>
 							<div class="flex-row">
 								<figure class="code">
 									<!--
@@ -571,13 +489,15 @@
 											}
 
 											const wrapper = render(
-												<AttendeeCard
+												&lt;AttendeeCard
 													{...data}
-												/>
+												/&gt;
 											);
 
-											expect(wrapper.find('h3').text()).toEqual('John Smith');
-											expect(wrapper.find('.-bio').text()).toEqual('bio...');
+											expect(wrapper.find('h3').text())
+												.toEqual('John Smith');
+											expect(wrapper.find('.-bio').text())
+												.toEqual('bio...');
 										});
 									</code></pre>
 									<!-- figcaption element is optional, can be placed above or below code  -->
@@ -587,89 +507,18 @@
 						</div>
 					</div>
 				</section>
-				<!-- Unit Testing. -->
-				<section class="subsection color--dark" id="subsection--unit-testing-s9">
+				<!-- Unit Testing: Slide #6 -->
+				<section class="subsection color--dark" id="subsection--unit-testing-s6">
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
 							<div class="section">4. Unit Testing</div>
 						</div>
 						<div>
-							<h5>Test results: Success and Failed</h5>
 							<div class="flex-row">
-								<figure class="code">
-									<!--
-										Code highlighting is performed by highlight.js
-
-										Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-										If showing an HTML example, add the data-escape attribute to the code element.
-									-->
-									<pre><code class="lang-shell">
-										Yoshi-Savenko-MBP:DrupalCon yoshisavenko$ npm run test
-
-										> react-skeletor@1.0.0 test ~/DrupalCon
-										> NODE_ENV=testing jest
-
-										 PASS  src/components/AttendeeCard/AttendeeCard.test.js
-										 PASS  src/components/AttendeesList/AttendeesList.test.js
-
-										Test Suites: 2 passed, 2 total
-										Tests:       2 passed, 2 total
-										Snapshots:   0 total
-										Time:        1.903s
-										Ran all test suites.
-									</code></pre>
-								</figure>
-								<figure class="code">
-									<!--
-										Code highlighting is performed by highlight.js
-
-										Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-										If showing an HTML example, add the data-escape attribute to the code element.
-									-->
-									<pre><code class="lang-shell">
-										Yoshi-Savenko-MBP:DrupalCon yoshisavenko$ npm run test
-
-										> react-skeletor@1.0.0 test ~/DrupalCon
-										> NODE_ENV=testing jest
-
-										 FAIL  src/components/AttendeeCard/AttendeeCard.test.js
-										  ● Attendee Card renders name
-
-											expect(received).toEqual(expected)
-
-											Expected value to equal:
-											  "John Smith"
-											Received:
-											  "John Smith "
-
-											  at Object.<anonymous> (src/components/AttendeeCard/AttendeeCard.test.js:19:37)
-												  at Promise (<anonymous>)
-												  at <anonymous>
-											  at process._tickCallback (internal/process/next_tick.js:188:7)
-
-										 PASS  src/components/AttendeesList/AttendeesList.test.js
-
-										Test Suites: 1 failed, 1 passed, 2 total
-										Tests:       1 failed, 1 passed, 2 total
-										Snapshots:   0 total
-										Time:        2.436s
-										Ran all test suites.
-									</code></pre>
-								</figure>
+								<figure><h5 style="margin:0;">Actions</h5></figure>
+								<figure><h5 style="margin:0;">Test file</h5></figure>
 							</div>
-						</div>
-					</div>
-				</section>
-				<!-- Unit Testing. -->
-				<section class="subsection color--dark" id="subsection--unit-testing-s10">
-					<div class="grid-wrapper">
-						<div class="header">
-							<div class="logo"></div>
-							<div class="section">4. Unit Testing</div>
-						</div>
-						<div>
-							<h5>Action</h5>
 							<div class="flex-row">
 								<figure class="code">
 									<!--
@@ -679,36 +528,37 @@
                                         If showing an HTML example, add the data-escape attribute to the code element.
                                     -->
 									<pre><code class="lang-javascript">
-export function getData() {
-  return function (dispatch, getState) {
-    let endpointId = 'attendees'
-    let endpoint = apiEndpoints[endpointId]
-    dispatch(getDataPending())
+										export function getData() {
+										  return function (dispatch, getState) {
+											let endpointId = 'attendees'
+											let endpoint = apiEndpoints[endpointId]
+											dispatch(getDataPending())
 
-    return axios({
-      url: endpoint.url,
-      method: endpoint.method,
-      timeout: endpoint.timeout
-    })
-    .then(res => {
-      var validate = ajv.compile(attendeesSchema)
-      var valid = validate(res.data)
+											return axios({
+											  url: endpoint.url,
+											  method: endpoint.method,
+											  timeout: endpoint.timeout
+											})
+											.then(res => {
+											  var validate = ajv.compile(attendeesSchema)
+											  var valid = validate(res.data)
 
-      if (!valid) {
-        dispatch(getDataFail('Error fetching the data', validate.errors))
-      }
-      else {
-        dispatch(getDataSuccess(res.data.attendees))
-      }
-    })
-    .catch(err => {
-      getDataFail('Error fetching the data')
-    });
-  }
-}
+											  if (!valid) {
+												dispatch(getDataFail('Error fetching the data',
+													validate.errors))
+											  }
+											  else {
+												dispatch(getDataSuccess(res.data.attendees))
+											  }
+											})
+											.catch(err => {
+											  getDataFail('Error fetching the data')
+											});
+										  }
+										}
 									</code></pre>
 									<!-- figcaption element is optional, can be placed above or below code  -->
-									<figcaption class="path">components/AttendeeCard/AttendeeCard.js</figcaption>
+									<figcaption class="path">actions/attendeeActions.js</figcaption>
 								</figure>
 								<figure class="code">
 									<!--
@@ -718,50 +568,53 @@ export function getData() {
 										If showing an HTML example, add the data-escape attribute to the code element.
 									-->
 									<pre><code class="lang-javascript">
-describe('Attendees actions', () => {
-  it('creates GET_DATA_SUCCESS', () => {
-    let endpointId = 'attendees'
-    let endpoint = apiEndpoints[endpointId]
-    let mockedObject = {
-      "id": 1001,
-      "title": "Mr.",
-      ...
-    }
+										describe('Attendees actions', () => {
+										  it('creates GET_DATA_SUCCESS', () => {
+											let endpointId = 'attendees'
+											let endpoint = apiEndpoints[endpointId]
+											let mockedObject = {
+											  "id": 1001,
+											  "title": "Mr.",
+											  ...
+											}
 
-    var mock = new MockAdapter(axios);
-    const data = {attendees: [mockedObject]};
+											var mock = new MockAdapter(axios);
+											const data = {attendees: [mockedObject]};
 
-    mock.onGet(config.apiURL + '/attendees').reply(200, data);
+											mock.onGet(config.apiURL + '/attendees')
+												.reply(200, data);
 
-    const expectedActions = [
-      { type: 'GET_DATA_PENDING' },
-      { type: 'GET_DATA_SUCCESS', data: [mockedObject]}
-    ]
-    const store = mockStore({ attendees: [] })
+											const expectedActions = [
+											  { type: 'GET_DATA_PENDING' },
+											  { type: 'GET_DATA_SUCCESS', data: [mockedObject]}
+											]
+											const store = mockStore({})
 
-    return store.dispatch(actions.getData()).then(() => {
-      expect(store.getActions()).toEqual(expectedActions)
-    })
-  })
-});
-
+											return store.dispatch(actions.getData()).then(() => {
+											  expect(store.getActions()).toEqual(expectedActions)
+											})
+										  })
+										});
 									</code></pre>
 									<!-- figcaption element is optional, can be placed above or below code  -->
-									<figcaption class="path">components/AttendeeCard/AttendeeCard.test.js</figcaption>
+									<figcaption class="path">actions/test/attendeeActions.test.js</figcaption>
 								</figure>
 							</div>
 						</div>
 					</div>
 				</section>
-				<!-- Unit Testing. -->
-				<section class="subsection color--dark" id="subsection--unit-testing-s11">
+				<!-- Unit Testing: Slide #7 -->
+				<section class="subsection color--dark" id="subsection--unit-testing-s7">
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
 							<div class="section">4. Unit Testing</div>
 						</div>
 						<div>
-							<h5>Now lets switch to the reducer</h5>
+							<div class="flex-row">
+								<figure><h5 style="margin:0;">Reducer</h5></figure>
+								<figure><h5 style="margin:0;">Test file</h5></figure>
+							</div>
 							<div class="flex-row">
 								<figure class="code">
 									<!--
@@ -771,14 +624,14 @@ describe('Attendees actions', () => {
 										If showing an HTML example, add the data-escape attribute to the code element.
 									-->
 									<pre><code class="lang-javascript">
-										const defaultState = {
+										const default = {
 											data: null,
 											isFetching: false,
 											isLoaded: false,
 											error: null
 										}
 
-										export default function attendees(state = defaultState, action) {
+										export default function attendee(state = default, action) {
 											switch(action.type) {
 												case 'GET_DATA_SUCCESS' :
 													return {
@@ -811,9 +664,9 @@ describe('Attendees actions', () => {
 										import attendees from '../attendees'
 
 										test('Attendees Reduser test', () => {
-											let initialState = attendees(undefined, {type: null});
+											let initState = attendees(undefined, {type: null});
 
-											let actionDataSuccess = {
+											let dataSuccess = {
 												type: 'GET_DATA_SUCCESS',
 												data: { test: "test" }
 											};
@@ -823,11 +676,12 @@ describe('Attendees actions', () => {
 												isFetching: false
 											};
 
-											expect(attendees(initialState, actionDataSuccess)).toEqual({
-												...initialState,
-												...attendeesSuccessUpdate,
-												data: actionDataSuccess.data
-											});
+											expect(attendees(initState, dataSuccess))
+												.toEqual({
+													...initialState,
+													...attendeesSuccessUpdate,
+													data: actionDataSuccess.data
+												});
 										});
 
 									</code></pre>
@@ -838,6 +692,156 @@ describe('Attendees actions', () => {
 					</div>
 				</section>
 
+				<!-- Unit Testing: Slide #8 -->
+				<section>
+					<section class="subsection color--dark" id="subsection--unit-testing-s8">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section">4. Unit Testing</div>
+							</div>
+							<div>
+								<h5>Test results: Success</h5>
+								<figure class="code">
+									<!--
+										Code highlighting is performed by highlight.js
+
+										Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
+										If showing an HTML example, add the data-escape attribute to the code element.
+									-->
+									<pre><code class="lang-shell" style="padding: 20px;">
+										$ npm run test
+
+										> react-skeletor@1.0.0 test ~/DrupalCon
+										> NODE_ENV=testing jest
+
+										 PASS  src/components/AttendeeCard/AttendeeCard.test.js
+										 PASS  src/reducers/reducers/tests/attendees.test.js
+										 PASS  src/actions/tests/attendeeActions.test.js
+
+										Test Suites: 3 passed, 3 total
+										Tests:       3 passed, 3 total
+										Snapshots:   0 total
+										Time:        1.903s
+										Ran all test suites.
+									</code></pre>
+								</figure>
+							</div>
+						</div>
+					</section>
+					<section class="subsection color--dark" id="subsection--unit-testing-s81">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section">4. Unit Testing</div>
+							</div>
+							<div>
+								<h5>Test results: Failed</h5>
+									<figure class="code" style="padding: 20px;">
+										<!--
+                                            Code highlighting is performed by highlight.js
+
+                                            Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
+                                            If showing an HTML example, add the data-escape attribute to the code element.
+                                        -->
+										<pre><code class="lang-shell" style="padding: 20px;">
+										$ npm run test
+
+										> react-skeletor@1.0.0 test ~/DrupalCon
+										> NODE_ENV=testing jest
+
+										 FAIL  src/components/AttendeeCard/AttendeeCard.test.js
+										  ● Attendee Card renders name
+
+											expect(received).toEqual(expected)
+
+											Expected value to equal:
+											  "John Smith"
+											Received:
+											  "John Smith "
+
+											...
+
+										 PASS  src/reducers/reducers/tests/attendees.test.js
+										 PASS  src/actions/tests/attendeeActions.test.js
+
+										Test Suites: 1 failed, 2 passed, 3 total
+										Tests:       1 failed, 2 passed, 3 total
+										...
+										Ran all test suites.
+										</code></pre>
+									</figure>
+							</div>
+						</div>
+					</section>
+					<section class="subsection color--dark" id="subsection--unit-testing-s82">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section">4. Unit Testing</div>
+							</div>
+							<div>
+								<h5>Test results: Coverage report</h5>
+								<figure class="code" style="padding: 20px;">
+									<!--
+                                        Code highlighting is performed by highlight.js
+
+                                        Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
+                                        If showing an HTML example, add the data-escape attribute to the code element.
+                                    -->
+									<pre><code class="lang-shell" style="padding: 20px;">
+$ npm run coverage
+
+...
+
+Test Suites: 3 passed, 3 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        1.725s
+Ran all test suites.
+-----------------------------|----------|----------|----------|----------|----------------|
+File                         |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+-----------------------------|----------|----------|----------|----------|----------------|
+All files                    |    88.46 |    88.89 |    77.78 |    88.46 |                |
+ src/actions                 |    81.25 |       50 |    71.43 |    81.25 |                |
+  actionCreators.js          |    81.25 |       50 |    71.43 |    81.25 |       32,39,58 |
+ src/components/AttendeeCard |      100 |      100 |      100 |      100 |                |
+  AttendeeCard.js            |      100 |      100 |      100 |      100 |                |
+ src/constants               |      100 |      100 |      100 |      100 |                |
+  endpoints.js               |      100 |      100 |      100 |      100 |                |
+ src/reducers                |      100 |      100 |      100 |      100 |                |
+  attendee.js                |      100 |      100 |      100 |      100 |                |
+-----------------------------|----------|----------|----------|----------|----------------|
+
+										</code></pre>
+								</figure>
+							</div>
+						</div>
+					</section>
+				</section>
+				<!-- Unit Testing: Slide #9 -->
+				<section class="subsection color--dark" id="subsection--unit-testing-s9">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">4. Unit Testing</div>
+						</div>
+						<div>
+							<h1>Summary</h1>
+							<br/><br/>
+							<ul class="list-extra-space">
+								<li>We have seen how main moving parts of React + Redux app can be tested.
+									<ul class="list-extra-space" style="padding-top: 15px;">
+										<li>Components</li>
+										<li>Actions</li>
+										<li>Reducers</li>
+									</ul>
+								</li>
+								<li>Covertage report.</li>
+							</ul>
+						</div>
+					</div>
+				</section>
 
 				<!-- THE END -->
 				<section class="subsection color--ice" id="questions">
@@ -885,7 +889,7 @@ describe('Attendees actions', () => {
 							<div class="content">
 								<p>
 									Locate this session at the DrupalCon Vienna website<br>
-									<a href="https://events.drupal.org/vienna2017/sessions/using-your-headers-better-security">https://events.drupal.org/vienna2017/sessions/using-your-headers-better-security</a>
+									<a href="https://events.drupal.org/vienna2017/sessions/skeletor-scaffolding-architecture-devops-progressive-decoupling">https://events.drupal.org/vienna2017/sessions/skeletor-scaffolding-architecture-devops-progressive-decoupling</a>
 								</p>
 								<p>
 									Take the survey!<br>
@@ -894,65 +898,6 @@ describe('Attendees actions', () => {
 							</div>
 						</div>
 					</section>
-				</section>
-
-				<section class="subsection color--ice" id="subsection--ice">
-					<div class="grid-wrapper">
-						<div class="logo"></div>
-						<h1>Questions?</h1>
-						<div class="description">
-							This is where the description goes. Keep it short and sweet.
-						</div>
-					</div>
-				</section>
-				<section id="blank">
-					<div class="grid-wrapper">
-						<div class="header">
-							<div class="logo"></div>
-							<div class="section">Section</div>
-						</div>
-						<div class="content">Content</div>
-					</div>
-				</section>
-				<section class="quote color--midnight" id="quote--midnight">
-					<div class="grid-wrapper">
-						<div class="logo"></div>
-						<blockquote>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis enim risus. Cras cursus at lacus eget malesuada. Duis vel justo lorem.
-							</p>
-							<hr/>
-							<cite>Caption/Annotation/Citation</cite>
-						</blockquote>
-					</div>
-				</section>
-				<section class="code color--dark" id="code--path">
-					<div class="grid-wrapper">
-						<div class="header">
-							<div class="logo"></div>
-							<div class="section">Section</div>
-						</div>
-						<div class="flex-row">
-							<figure class="code">
-								<!--
-									Code highlighting is performed by highlight.js
-
-									Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-									If showing an HTML example, add the data-escape attribute to the code element.
-								-->
-								<pre><code class="lang-php">
-									namespace \myplanet\reveal;
-
-									function foo() {
-										echo "bar";
-									}
-								</code></pre>
-								<!-- figcaption element is optional, can be placed above or below code  -->
-								<figcaption class="path">/src/myplanet/reveal/functions.php</figcaption>
-							</figure>
-
-						</div>
-					</div>
 				</section>
 
 				<section class="end color--radiant" id="end-radiant">

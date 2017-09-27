@@ -21,10 +21,11 @@ span.semibold {
 
 .flex-row {
   display: flex;
+  width: 95%;
 }
 
 .flex-row figure {
-    width: 50%;
+    width: 48%;
 }
 
 .opacity-70 {
@@ -37,6 +38,11 @@ span.semibold {
 
 .margin-bottom-0 {
     margin-bottom: 0 !important;
+}
+
+.reveal blockquote.stick-left {
+    margin: 20px 0;
+    padding: 20px;
 }
 
 /* Sprints */
