@@ -53,19 +53,40 @@
 					</div>
 				</section>
 
-
+				<!-- Intro -->
 				<section class="subsection color--midnight" id="topics">
-					<div class="grid-wrapper">
-						<div class="logo"></div>
-						<h1>What we'll talk about</h1>
-						<ol class="description">
-							<li>Building a Progressively Decoupled site with Skeletor</li>
-							<li>Continuous Integration for Progressive Decoupling</li>
-							<li>Unit testing React components in Drupal</li>
-							<li>Test for data consistency with JSON Schema</li>
-						</ol>
-
-					</div>
+					<section class="subsection color--midnight" id="topics-intro">
+						<div class="grid-wrapper">
+							<div class="logo"></div>
+							<h1>The Goal</h1>
+							<p class="description">
+								Integrating progressively decoupling into your workflow.
+							</p>
+						</div>
+					</section>
+					<section class="subsection color--midnight" id="topics-challenges">
+						<div class="grid-wrapper">
+							<div class="logo"></div>
+							<h1>The Challenges</h1>
+							<ol class="description">
+								<li>Progressively decoupled – React inside of Drupal</li>
+								<li>Different teams with different repositories</li>
+								<li>Confidence in our React components</li>
+							</ol>
+						</div>
+					</section>
+					<section class="subsection color--midnight" id="topics-description">
+						<div class="grid-wrapper">
+							<div class="logo"></div>
+							<h1>The Topics</h1>
+							<ol class="description">
+								<li>Building a Progressively Decoupled site with Skeletor</li>
+								<li>Continuous Integration for Progressive Decoupling</li>
+								<li>Unit testing React components in Drupal</li>
+								<li>Test for data consistency with JSON Schema</li>
+							</ol>
+						</div>
+					</section>
 				</section>
 
 				<!-- Team page can accommodate one or two profiles. -->
@@ -104,26 +125,218 @@
 
 				<!-- Skeletor. -->
 				<section class="subsection color--ice" id="subsection--skeletor">
-					<div class="grid-wrapper">
-						<div class="header">
-							<div class="logo"></div>
-							<div class="section">1. Skeletor</div>
+					<section class="subsection color--ice" id="subsection--skeletor--intro">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section">1. Skeletor</div>
+							</div>
+							<h1>Building a Progressively Decoupled site with Skeletor</h1>
+							<div class="description"><a href="http://packagist.org/packages/myplanet/skeletor">Skeletor</a> is our framework for scaffolding your decoupled apps</div>
 						</div>
-						<h1>Building a Progressively Decoupled site with Skeletor</h1>
-						<div class="description"></div>
-					</div>
+					</section>
+					<section class="subsection color--ice" id="subsection--skeletor--dependencies">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section">1. Skeletor</div>
+							</div>
+							<h1>Rest UI + JSON Schema</h1>
+							<div class="description">Endpoints to provide the data, and a schema to describe it.</div>
+						</div>
+					</section>
+					<section class="subsection color--ice" id="subsection--skeletor--restui">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section">1. Skeletor</div>
+							</div>
+								<h1>
+									&ldquo;A user interface for configuring Drupal 8's REST module.
+								</h1>
+							<div class="description">drupal.org/projects/restui</div>
+
+						</div>
+					</section>
+					<section class="subsection color--ice" id="subsection--skeletor--openapi">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section">1. Skeletor</div>
+							</div>
+								<h1>
+									&ldquo;Creating an open description format for API services that is vendor neutral, portable and open is critical to accelerating the vision of a truly connected world.
+								</h1>
+							<div class="description">OpenAPIs.org</div>
+						</div>
+					</section>
 				</section>
 
 				<!-- Continuous Integration. -->
-				<section class="subsection color--midnight" id="subsection--continuous-integration">
-					<div class="grid-wrapper">
-						<div class="header">
-							<div class="logo"></div>
-							<div class="section">2. Continuous Integration</div>
+				<section class="subsection color--radiant" id="subsection--ci">
+					<section class="subsection color--radiant" id="subsection--ci--intro">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section">2. Continuous Integration</div>
+							</div>
+							<h1>Continuous Integration for Progressive Decoupling</h1>
+							<div class="description">One docroot to rule them all</div>
 						</div>
-						<h1>Continuous Integration for Progressive Decoupling</h1>
-						<div class="description"></div>
-					</div>
+					</section>
+					<section class="subsection color--radiant" id="subsection--ci--goal">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section">2. Continuous Integration</div>
+							</div>
+							<div>
+								<h1>The Goal</h1>
+								<figure class="code">
+									<pre><code class="lang-php">
+										composer require myplanet/skeletor-scaffold
+									</code></pre>
+								</figure>
+							</div>
+						</div>
+					</section>
+					<section class="subsection color--radiant" id="subsection--ci--repository">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section">2. Continuous Integration</div>
+							</div>
+							<div>
+								<div>
+									<div class="flex-row">
+										<figure><h5 style="margin:0;">Register your dependency</h5></figure>
+										<figure><h5 style="margin:0;">Place your dependency</h5></figure>
+									</div>
+									<div class="flex-row">
+										<figure class="code">
+											<pre><code class="lang-php">
+												"repositories": [
+												...
+													{
+														"type": "package",
+														"package": {
+															"name": "myplanet/react-redux-skeletor",
+															"version": "1.0",
+															"type": "npm-package",
+															"source": {
+																"type": "git",
+																"reference": "presentation",
+																"url": "https://github.com/myplanet/react-redux-skeletor.git"
+															},
+															"require": {
+																"composer/installers": "^1.2",
+																"oomphinc/composer-installers-extender": "dev-master"
+															}
+														}
+													}
+												],
+											</code></pre>
+											<figcaption class="path">composer.json:repositories</figcaption>
+										</figure>
+										<figure class="code">
+											<pre><code class="lang-php">
+												"extra": {
+													...
+													"installer-paths": {
+														...
+														"docroot/modules/npm-packages/{$name}": ["type:npm-package"]
+													},
+													"installer-types": ["npm-package"]
+												}
+											</code></pre>
+											<!-- figcaption element is optional, can be placed above or below code  -->
+											<figcaption class="path">composer.json:extra</figcaption>
+										</figure>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="subsection color--radiant" id="subsection--ci--build">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section">2. Continuous Integration</div>
+							</div>
+							<h1>But how do we install the node packages?</h1>
+							<div class="description">I'm very lazy and want a robot to do this.</div>
+						</div>
+					</section>
+
+					<section class="subsection color--radiant" id="subsection--ci--postinstall">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section">2. Continuous Integration</div>
+							</div>
+							<div>
+								<div>
+									<div class="flex-row">
+										<figure><h5 style="margin:0;">Register a post-install command...</h5></figure>
+										<figure><h5 style="margin:0;">... then build it!</h5></figure>
+									</div>
+									<div class="flex-row">
+										<figure class="code">
+											<pre><code class="lang-php">
+												 "autoload": {
+														"classmap": [
+															...
+															"scripts/skeletor/NpmPackage.php"
+														]
+													},
+													"scripts": {
+												     ...
+														"npm-install": "DrupalSkeletor\\NpmPackage::npmInstall",
+														"npm-build":   "DrupalSkeletor\\NpmPackage::npmBuild",
+														"npm-test":    "DrupalSkeletor\\NpmPackage::npmTest",
+														"post-install-cmd": [
+															"DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+															"DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+															"@composer npm-install",
+															"@composer npm-build"
+														],
+												}
+											</code></pre>
+											<figcaption class="path">composer.json:scripts & composer.json:autoload</figcaption>
+										</figure>
+										<figure class="code">
+											<pre><code class="lang-php">
+												namespace DrupalSkeletor;
+
+												use Composer\Script\Event;
+												use Symfony\Component\Finder\Finder;
+												use DrupalFinder\DrupalFinder;
+
+												/**
+												 * Class NpmPackage.
+												 *
+												 * @package DrupalSkeletor
+												 */
+												class NpmPackage {
+
+													/**
+													 * NPM Install.
+													 *
+													 * @param \Composer\Script\Event $event
+													 *   Event to echo output.
+													 */
+													public static function npmInstall(Event $event) {
+														static::runNpmCommand('install', $event);
+													}
+												...
+											</code></pre>
+											<figcaption class="path">scripts/skeletor/NpmPackage.php</figcaption>
+										</figure>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
 				</section>
 
 
@@ -221,12 +434,6 @@
 							</div>
 							<div class="flex-row">
 								<figure class="code">
-									<!--
-                                        Code highlighting is performed by highlight.js
-
-                                        Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-                                        If showing an HTML example, add the data-escape attribute to the code element.
-                                    -->
 									<pre><code class="lang-javascript">
 										import React, { Component } from 'react';
 										import PropTypes from 'prop-types';
@@ -260,12 +467,6 @@
 									<figcaption class="path">components/AttendeeCard/AttendeeCard.js</figcaption>
 								</figure>
 								<figure class="code">
-									<!--
-										Code highlighting is performed by highlight.js
-
-										Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-										If showing an HTML example, add the data-escape attribute to the code element.
-									-->
 									<pre><code class="lang-javascript">
 										import React from 'react';
 										import {shallow, render, mount} from 'enzyme';
@@ -312,12 +513,6 @@
 							</div>
 							<div class="flex-row">
 								<figure class="code">
-									<!--
-                                        Code highlighting is performed by highlight.js
-
-                                        Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-                                        If showing an HTML example, add the data-escape attribute to the code element.
-                                    -->
 									<pre><code class="lang-javascript">
 										export function getData() {
 										  return function (dispatch, getState) {
@@ -352,12 +547,6 @@
 									<figcaption class="path">actions/attendeeActions.js</figcaption>
 								</figure>
 								<figure class="code">
-									<!--
-										Code highlighting is performed by highlight.js
-
-										Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-										If showing an HTML example, add the data-escape attribute to the code element.
-									-->
 									<pre><code class="lang-javascript">
 										describe('Attendees actions', () => {
 										  it('creates GET_DATA_SUCCESS', () => {
@@ -408,12 +597,6 @@
 							</div>
 							<div class="flex-row">
 								<figure class="code">
-									<!--
-										Code highlighting is performed by highlight.js
-
-										Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-										If showing an HTML example, add the data-escape attribute to the code element.
-									-->
 									<pre><code class="lang-javascript">
 										const default = {
 											data: null,
@@ -445,12 +628,6 @@
 									<figcaption class="path">reducers/attendees.js</figcaption>
 								</figure>
 								<figure class="code">
-									<!--
-										Code highlighting is performed by highlight.js
-
-										Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-										If showing an HTML example, add the data-escape attribute to the code element.
-									-->
 									<pre><code class="lang-javascript">
 										import attendees from '../attendees'
 
@@ -494,12 +671,6 @@
 							<div>
 								<h5>Test results: Success</h5>
 								<figure class="code">
-									<!--
-										Code highlighting is performed by highlight.js
-
-										Leading whitespace is trimmed by default.  Add the data-notrim attribute to the code element to preserve it.
-										If showing an HTML example, add the data-escape attribute to the code element.
-									-->
 									<pre><code class="lang-shell" style="padding: 20px;">
 										$ npm run test
 
@@ -628,7 +799,7 @@ All files                    |    88.46 |    88.89 |    77.78 |    88.46 |      
 										<li>Reducers</li>
 									</ul>
 								</li>
-								<li>Covertage report.</li>
+								<li>Coverage report.</li>
 							</ul>
 						</div>
 					</div>
@@ -850,13 +1021,29 @@ All files                    |    88.46 |    88.89 |    77.78 |    88.46 |      
 					</div>
 				</section>
 
+				<section class="title" id="conclusion">
+					<div class="grid-wrapper">
+						<div class="header">
+							<!-- Remove logo--full class to only show brand mark -->
+							<div class="logo logo--full"><span class="visually-hidden">Myplanet</span></div>
+						</div>
+						<div class="content">
+							<h1>In the future?</h1>
+							<ul class="description">
+								<li>React ought to define the schema that it needs.</li>
+								<li>Private Packages for teams with many dependencies.</li>
+								<li>Acquia Node environments for fully decoupled.</li>
+							</ul>
+						</div>
+				</section>
+
 				<!-- THE END -->
 				<section class="subsection color--ice" id="questions">
 					<div class="grid-wrapper">
 						<div class="logo"></div>
 						<h1>Questions?</h1>
 						<div class="description">
-							This is where the description goes. Keep it short and sweet.
+							Tweet us at @myplanet or @emarchak if you're shy<!doctype html>
 						</div>
 					</div>
 				</section>
