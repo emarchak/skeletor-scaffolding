@@ -484,7 +484,7 @@
 										import React, { Component } from 'react';
 										import PropTypes from 'prop-types';
 
-										class AttendeesCard extends Component {
+										class AttendeeCard extends Component {
 											render() {
 												let {id, firstName, lastName, dorgId, bio, presenter}
 												= this.props
@@ -499,7 +499,7 @@
 											}
 										}
 
-										AttendeesCard.propTypes = {
+										AttendeeCard.propTypes = {
 											id: PropTypes.number,
 											name: PropTypes.string,
 											dorgId: PropTypes.string,
@@ -507,7 +507,7 @@
 											presenter: PropTypes.bool
 										};
 
-										export default AttendeesCard;
+										export default AttendeeCard;
 									</code></pre>
 									<!-- figcaption element is optional, can be placed above or below code  -->
 									<figcaption class="path">components/AttendeeCard/AttendeeCard.js</figcaption>
@@ -562,7 +562,7 @@
 									<pre><code class="lang-javascript">
 										export function getData() {
 										  return function (dispatch, getState) {
-											let endpointId = 'attendees'
+											let endpointId = 'attendee'
 											let endpoint = apiEndpoints[endpointId]
 											dispatch(getDataPending())
 
@@ -572,7 +572,7 @@
 											  timeout: endpoint.timeout
 											})
 											.then(res => {
-											  var validate = ajv.compile(attendeesSchema)
+											  var validate = ajv.compile(attendeeSchema)
 											  var valid = validate(res.data)
 
 											  if (!valid) {
@@ -580,7 +580,7 @@
 													validate.errors))
 											  }
 											  else {
-												dispatch(getDataSuccess(res.data.attendees))
+												dispatch(getDataSuccess(res.data.attendee))
 											  }
 											})
 											.catch(err => {
@@ -594,25 +594,19 @@
 								</figure>
 								<figure class="code">
 									<pre><code class="lang-javascript">
-										describe('Attendees actions', () => {
+										describe('Attendee actions', () => {
 										  it('creates GET_DATA_SUCCESS', () => {
-											let endpointId = 'attendees'
+											let endpointId = 'attendee'
 											let endpoint = apiEndpoints[endpointId]
-											let mockedObject = {
-											  "id": 1001,
-											  "title": "Mr.",
-											  ...
-											}
 
 											var mock = new MockAdapter(axios);
-											const data = {attendees: [mockedObject]};
+											const data = mockedObject;
 
-											mock.onGet(config.apiURL + '/attendees')
-												.reply(200, data);
+											mock.onGet(endpoint.url).reply(200, data);
 
 											const expectedActions = [
 											  { type: 'GET_DATA_PENDING' },
-											  { type: 'GET_DATA_SUCCESS', data: [mockedObject]}
+											  { type: 'GET_DATA_SUCCESS', data: mockedObject}
 											]
 											const store = mockStore({})
 
@@ -671,35 +665,35 @@
 											}
 										}
 									</code></pre>
-									<figcaption class="path">reducers/attendees.js</figcaption>
+									<figcaption class="path">reducers/attendee.js</figcaption>
 								</figure>
 								<figure class="code">
 									<pre><code class="lang-javascript">
-										import attendees from '../attendees'
+										import attendee from '../attendee'
 
-										test('Attendees Reduser test', () => {
-											let initState = attendees(undefined, {type: null});
+										test('Attendee reducer test', () => {
+											let initState = attendee(undefined, {type: null});
 
 											let dataSuccess = {
 												type: 'GET_DATA_SUCCESS',
 												data: { test: "test" }
 											};
 
-											let attendeesSuccessUpdate = {
+											let attendeeSuccessUpdate = {
 												isLoaded: true,
 												isFetching: false
 											};
 
-											expect(attendees(initState, dataSuccess))
+											expect(attendee(initState, dataSuccess))
 												.toEqual({
 													...initialState,
-													...attendeesSuccessUpdate,
+													...attendeeSuccessUpdate,
 													data: actionDataSuccess.data
 												});
 										});
 
 									</code></pre>
-									<figcaption class="path">reducers/tests/attendees.test.js</figcaption>
+									<figcaption class="path">reducers/tests/attendee.test.js</figcaption>
 								</figure>
 							</div>
 						</div>
@@ -724,7 +718,7 @@
 										> NODE_ENV=testing jest
 
 										 PASS  src/components/AttendeeCard/AttendeeCard.test.js
-										 PASS  src/reducers/reducers/tests/attendees.test.js
+										 PASS  src/reducers/reducers/tests/attendee.test.js
 										 PASS  src/actions/tests/attendeeActions.test.js
 
 										Test Suites: 3 passed, 3 total
@@ -770,7 +764,7 @@
 
 											...
 
-										 PASS  src/reducers/reducers/tests/attendees.test.js
+										 PASS  src/reducers/reducers/tests/attendee.test.js
 										 PASS  src/actions/tests/attendeeActions.test.js
 
 										Test Suites: 1 failed, 2 passed, 3 total
@@ -866,38 +860,39 @@ All files                    |    88.46 |    88.89 |    77.78 |    88.46 |      
 				</section>
 
 				<!-- JSON Schema: Slide 2 -->
-				<section>
-					<section class="subsection color--radiant" id="subsection--json--s2">
-						<div class="grid-wrapper">
-							<div class="header">
-								<div class="logo"></div>
-								<div class="section color--white">2. JSON Schema</div>
-							</div>
-							<div>
-								<h1>Problem</h1>
-								<p>Javascript is not a strongly typed language, and as a frontend developer you need to rely on additional tools which will allow you to develop stable apps with Javascript.</p>
-							</div>
+				<section class="subsection color--radiant" id="subsection--json--s2">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">4. JSON Schema</div>
 						</div>
-					</section>
-					<section class="subsection color--radiant" id="subsection--json--s21">
-						<div class="grid-wrapper">
-							<div class="header">
-								<div class="logo"></div>
-								<div class="section color--white">2. JSON Schema</div>
-							</div>
-							<div>
-								<h1>Problem</h1>
-								<p>Javascript is not a strongly typed language, and as a frontend developer you need to rely on additional tools which will allow you to develop stable apps with Javascript.</p>
-								<hr/>
-								<h1>Solution</h1>
-								<p>We recommend to consider using JSON schema validation if JSON is your communication protocol.</p>
-							</div>
-						</div>
-					</section>
+						<div>
+							<h1>What is JSON Schema</h1>
+							<br/><br/>
+							<blockquote class="stick-left">JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.</blockquote>
+						<div>
+					</div>
 				</section>
 
-				<!-- JSON Schema slide #3 -->
+				<!-- JSON Schema: Slide 3 -->
 				<section class="subsection color--radiant" id="subsection--json--s3">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section color--white">2. JSON Schema</div>
+						</div>
+						<div>
+							<h1>Problem</h1>
+							<p>Javascript is not a strongly typed language, and as a developer you need to rely on additional tools which will allow you to develop stable apps with Javascript.</p>
+							<hr/>
+							<h1>Solution</h1>
+							<p>We recommend to use JSON schema validators if JSON is your communication protocol.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- JSON Schema slide 4 -->
+				<section class="subsection color--radiant" id="subsection--json--s4">
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
@@ -921,7 +916,9 @@ All files                    |    88.46 |    88.89 |    77.78 |    88.46 |      
 						<cite>http://json-schema.org/implementations.html#validator-javascript</cite>
 					</div>
 				</section>
-				<section class="code color--radiant" id="subsection--json--s4">
+
+				<!-- JSON Schema slide 5 -->
+				<section class="code color--radiant" id="subsection--json--s5">
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
@@ -937,29 +934,16 @@ All files                    |    88.46 |    88.89 |    77.78 |    88.46 |      
 								-->
 								<pre><code class="lang-json">
 									{
-										"attendees" : [
-											{
-												"id": 1001,
-												"title": "Mr.",
-												"firstName": "John",
-												"lastName": "Smith",
-												"bio": "lorem ipsum...",
-												"presenter": true
-											},
-											{
-												"id": 1002,
-												"title": "Ms.",
-												"firstName": "James",
-												"lastName": "Noname",
-												"bio": "lorem ipsum...",
-												"presenter": false
-											},
-											...
-										]
+										"id": 1002,
+										"title": "Ms.",
+										"firstName": "James",
+										"lastName": "Noname",
+										"bio": "lorem ipsum...",
+										"presenter": false
 									}
 								</code></pre>
 								<!-- figcaption element is optional, can be placed above or below code  -->
-								<figcaption class="path">mydomain/attendees</figcaption>
+								<figcaption class="path">mydomain/attendee</figcaption>
 							</figure>
 
 							<figure class="code">
@@ -977,30 +961,25 @@ All files                    |    88.46 |    88.89 |    77.78 |    88.46 |      
 										<span class="opacity-30">"description": "Describes the payload for 'node' entities of the 'attendee' bundle.",</span>
 										"type": "object",
 										"properties": {
-											"attendees": {
-												"type": "array",
-												"items": {
-													"type": "object",
-													"properties": {
-														"id" : {"type": "integer"},
-														"title" : {"type": "string"},
-														"firstName" : {"type": "string"},
-														"lastName" : {"type": "string"},
-														"bio" : {"type": "string"},
-														"presenter" : {"type": "boolean"}
-													},
-													"required": ["id", "firstName", "lastName"]
-												}
-											}
-										}
+											"id" : {"type": "integer"},
+											"title" : {"type": "string"},
+											"firstName" : {"type": "string"},
+											"lastName" : {"type": "string"},
+											"bio" : {"type": "string"},
+											"presenter" : {"type": "boolean"}
+										},
+										"required": ["id", "firstName", "lastName"]
 									}
 								</code></pre>
-								<figcaption class="path">/schemas/attendeesSchema.json</figcaption>
+								<!-- figcaption element is optional, can be placed above or below code  -->
+								<figcaption class="path">/schemas/attendeeSchema.json</figcaption>
 							</figure>
 						</div>
 					</div>
 				</section>
-				<section class="code color--radiant" id="subsection--json--s5">
+
+				<!-- JSON Schema slide 6 -->
+				<section class="code color--radiant" id="subsection--json--s6">
 					<div class="grid-wrapper">
 						<div class="header">
 							<div class="logo"></div>
@@ -1014,9 +993,9 @@ All files                    |    88.46 |    88.89 |    77.78 |    88.46 |      
 								If showing an HTML example, add the data-escape attribute to the code element.
 							-->
 							<pre><code class="lang-javascript">
-								export function getAttendees() {
+								export function getAttendee() {
 									return function (dispatch, getState) {
-										let endpointId = 'attendees'
+										let endpointId = 'attendee'
 										let endpoint = apiEndpoints[endpointId] //import { apiEndpoints } from '../constants/endpoints'
 										dispatch(getDataPending())
 
@@ -1027,13 +1006,13 @@ All files                    |    88.46 |    88.89 |    77.78 |    88.46 |      
 										})
 										.then(res => {
 											// Validate response data.
-											var validate = ajv.compile(attendeesSchema) // import Ajv from 'ajv'; let ajv = Ajv({allErrors: true});
+											var validate = ajv.compile(attendeeSchema) // import Ajv from 'ajv'; let ajv = Ajv({allErrors: true});
 											var valid = validate(res.data)
 											if (!valid) {
 												getDataFail('Error fetching the data', validate.errors)
 											}
 											else {
-												dispatch(getDataSuccess(res.data.attendees))
+												dispatch(getDataSuccess(res.data))
 											}
 										.catch(err => {
 											getDataFail('Error fetching the data')
@@ -1042,11 +1021,12 @@ All files                    |    88.46 |    88.89 |    77.78 |    88.46 |      
 								}
 							</code></pre>
 							<!-- figcaption element is optional, can be placed above or below code  -->
-							<figcaption class="path">actions/attendeesActions.js</figcaption>
+							<figcaption class="path">actions/attendeeActions.js</figcaption>
 						</figure>
 					</div>
 				</section>
-				<!-- JSON Schema slide #3 -->
+
+				<!-- JSON Schema slide 7 -->
 				<section class="subsection color--radiant" id="subsection--json--s7">
 					<div class="grid-wrapper">
 						<div class="header">
@@ -1058,9 +1038,12 @@ All files                    |    88.46 |    88.89 |    77.78 |    88.46 |      
 							<br/><br/>
 							<ul class="list-extra-space">
 								<li>We have seen how we can use JSON schema validation to make sure that React app receives data in the expected format.</li>
-								<li>We can make our React app report the problem with the data back to the Drupal.</li>
-								<li>We can make our React app to massage the data on the entry point of our app and perform the conversions and re-validate data again.</li>
-								<li>And speaking about data validity, consider always using React PropTypes for the component where data type might be a concern.</li>
+								<li>You can make your React app to massage the data on the entry point of your app (before app or components start render) and perform the conversions and re-validate data again.</li>
+								<li>You can make your React app report the problem with the data back to the Drupal if validation fails.</li>
+								<li>You can validate the data React app sends back to the Drupal.</li>
+								<li>You can use JSON schema validators in your unit tests, by testing payload submitted with actions or test if reducers update state properly.</li>
+								<br/>
+								<li>And consider always using React PropTypes for the React components.</li>
 							</ul>
 						</div>
 					</div>
