@@ -158,6 +158,39 @@
 
 						</div>
 					</section>
+					<section class="subsection color--ice" id="subsection--skeletor--restui-code">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section">1. Skeletor</div>
+							</div>
+							<div>
+								<figure class="code">
+									<figure><h5 style="margin:0;">REST Resource</h5></figure>
+									<pre><code class="lang-json">
+									{
+										"nid": [{ "value": 1 }],
+										"type": [
+											{
+											"target_id": "attendee",
+											"target_type": "node_type",
+											"target_uuid": "232c8ff1-47f9-4783-9e5c-e747c75ce558"
+											}
+										],
+										"field_bio": [{ "value": "Qui natus et ..." }],
+										"field_firstname": [{ "value": "Dana" }],
+										"field_lastname": [{ "value": "Oneil" }],
+										"field_presenter": [{ "value": true }],
+										"field_title": [{ "value": "Ms." }]
+										...
+									}
+								</code></pre>
+									<!-- figcaption element is optional, can be placed above or below code  -->
+									<figcaption class="path">/node/1?_format=json</figcaption>
+								</figure>
+							</div>
+						</div>
+					</section>
 					<section class="subsection color--ice" id="subsection--skeletor--openapi">
 						<div class="grid-wrapper">
 							<div class="header">
@@ -168,6 +201,31 @@
 									&ldquo;Creating an open description format for API services that is vendor neutral, portable and open is critical to accelerating the vision of a truly connected world.
 								</h1>
 							<div class="description">OpenAPIs.org</div>
+						</div>
+					</section>
+					<section class="subsection color--ice" id="subsection--skeletor--openapi--code">
+						<div class="grid-wrapper">
+							<div class="header">
+								<div class="logo"></div>
+								<div class="section">1. Skeletor</div>
+							</div>
+							<div>
+								<figure class="code">
+									<figure><h5 style="margin:0;">Schemata</h5></figure>
+									<pre><code class="lang-json">
+										{
+											"$schema": "http://json-schema.org/draft-04/schema#",
+											"id": "http://local.skeletor.com/schemata/node/attendee?_format=schema_json&_describes=api_json",
+											"type": "object",
+											"title": "node:attendee Schema",
+											"description": "Describes the payload for 'node' entities of the 'attendee' bundle.",
+											"properties": {
+											...
+										}
+									</code></pre>
+									<figcaption class="path">/schemata/node/attendee?_format=schema_json&_describes=api_json</figcaption>
+								</figure>
+							</div>
 						</div>
 					</section>
 				</section>
