@@ -164,28 +164,27 @@
 								<div class="logo"></div>
 								<div class="section">1. Skeletor</div>
 							</div>
-							<div>
+							<div class="flex-row">
 								<figure class="code">
-									<figure><h5 style="margin:0;">REST Resource</h5></figure>
+									<figcaption><h5 style="margin:0;">REST Resource</h5></figcaption>
 									<pre><code class="lang-json">
-									{
-										"nid": [{ "value": 1 }],
-										"type": [
-											{
-											"target_id": "attendee",
-											"target_type": "node_type",
-											"target_uuid": "232c8ff1-47f9-4783-9e5c-e747c75ce558"
-											}
-										],
-										"field_bio": [{ "value": "Qui natus et ..." }],
-										"field_firstname": [{ "value": "Dana" }],
-										"field_lastname": [{ "value": "Oneil" }],
-										"field_presenter": [{ "value": true }],
-										"field_title": [{ "value": "Ms." }]
-										...
-									}
-								</code></pre>
-									<!-- figcaption element is optional, can be placed above or below code  -->
+										{
+											"nid":  [{ "value": 1 }],
+											"type": [
+												{
+												"target_id":   "attendee",
+												"target_type": "node_type",
+												"target_uuid": "232c8ff1-47f9-4783-9e5c-e747c75ce558"
+												}
+											],
+											"field_bio":       [{ "value": "Qui natus et ..." }],
+											"field_firstname": [{ "value": "Dana" }],
+											"field_lastname":  [{ "value": "Oneil" }],
+											"field_presenter": [{ "value": true }],
+											"field_title":     [{ "value": "Ms." }]
+											...
+										}
+									</code></pre>
 									<figcaption class="path">/node/1?_format=json</figcaption>
 								</figure>
 							</div>
@@ -209,15 +208,15 @@
 								<div class="logo"></div>
 								<div class="section">1. Skeletor</div>
 							</div>
-							<div>
+							<div class="flex-row">
 								<figure class="code">
-									<figure><h5 style="margin:0;">Schemata</h5></figure>
+									<figcaption><h5 style="margin:0;">Schemata</h5></figcaption>
 									<pre><code class="lang-json">
 										{
-											"$schema": "http://json-schema.org/draft-04/schema#",
-											"id": "http://local.skeletor.com/schemata/node/attendee?_format=schema_json&_describes=api_json",
-											"type": "object",
-											"title": "node:attendee Schema",
+											"$schema":     "http://json-schema.org/draft-04/schema#",
+											"id":          "http://local.skeletor.com/schemata/node/attendee?_format=schema_json&_describes=api_json",
+											"type":        "object",
+											"title":       "node:attendee Schema",
 											"description": "Describes the payload for 'node' entities of the 'attendee' bundle.",
 											"properties": {
 											...
@@ -250,11 +249,13 @@
 							</div>
 							<div>
 								<h1>The Goal</h1>
-								<figure class="code">
-									<pre><code class="lang-php">
-										composer require myplanet/skeletor-scaffold
-									</code></pre>
-								</figure>
+								<div class="flex-row">
+									<figure class="code">
+										<pre><code class="lang-php">
+											composer require myplanet/skeletor-scaffold
+										</code></pre>
+									</figure>
+								</div>
 							</div>
 						</div>
 					</section>
@@ -264,54 +265,47 @@
 								<div class="logo"></div>
 								<div class="section">2. Continuous Integration</div>
 							</div>
-							<div>
-								<div>
-									<div class="flex-row">
-										<figure><h5 style="margin:0;">Register your dependency</h5></figure>
-										<figure><h5 style="margin:0;">Place your dependency</h5></figure>
-									</div>
-									<div class="flex-row">
-										<figure class="code">
-											<pre><code class="lang-php">
-												"repositories": [
-												...
-													{
-														"type": "package",
-														"package": {
-															"name": "myplanet/react-redux-skeletor",
-															"version": "1.0",
-															"type": "npm-package",
-															"source": {
-																"type": "git",
-																"reference": "presentation",
-																"url": "https://github.com/myplanet/react-redux-skeletor.git"
-															},
-															"require": {
-																"composer/installers": "^1.2",
-																"oomphinc/composer-installers-extender": "dev-master"
-															}
-														}
-													}
-												],
-											</code></pre>
-											<figcaption class="path">composer.json:repositories</figcaption>
-										</figure>
-										<figure class="code">
-											<pre><code class="lang-php">
-												"extra": {
-													...
-													"installer-paths": {
-														...
-														"docroot/modules/npm-packages/{$name}": ["type:npm-package"]
+							<div class="flex-row">
+								<figure class="code">
+									<figcaption>Register your dependency</figcaption>
+									<pre><code class="lang-php">
+										"repositories": [
+										...
+											{
+												"type":    "package",
+												"package": {
+													"name":    "myplanet/react-redux-skeletor",
+													"version": "1.0",
+													"type":    "npm-package",
+													"source": {
+														"type":      "git",
+														"reference": "presentation",
+														"url":       "https://github.com/myplanet/react-redux-skeletor.git"
 													},
-													"installer-types": ["npm-package"]
+													"require": {
+														"composer/installers": "^1.2",
+														"oomphinc/composer-installers-extender": "dev-master"
+													}
 												}
-											</code></pre>
-											<!-- figcaption element is optional, can be placed above or below code  -->
-											<figcaption class="path">composer.json:extra</figcaption>
-										</figure>
-									</div>
-								</div>
+											}
+										],
+									</code></pre>
+									<figcaption class="path">composer.json:repositories</figcaption>
+								</figure>
+								<figure class="code">
+									<figcaption>Place your dependency</figcaption>
+									<pre><code class="lang-php">
+										"extra": {
+											...
+											"installer-paths": {
+												...
+												"docroot/modules/npm-packages/{$name}": ["type:npm-package"]
+											},
+											"installer-types": ["npm-package"]
+										}
+									</code></pre>
+									<figcaption class="path">composer.json:extra</figcaption>
+								</figure>
 							</div>
 						</div>
 					</section>
@@ -332,67 +326,61 @@
 								<div class="logo"></div>
 								<div class="section">2. Continuous Integration</div>
 							</div>
-							<div>
-								<div>
-									<div class="flex-row">
-										<figure><h5 style="margin:0;">Register a post-install command...</h5></figure>
-										<figure><h5 style="margin:0;">... then build it!</h5></figure>
-									</div>
-									<div class="flex-row">
-										<figure class="code">
-											<pre><code class="lang-php">
-												 "autoload": {
-														"classmap": [
-															...
-															"scripts/skeletor/NpmPackage.php"
-														]
-													},
-													"scripts": {
-												     ...
-														"npm-install": "DrupalSkeletor\\NpmPackage::npmInstall",
-														"npm-build":   "DrupalSkeletor\\NpmPackage::npmBuild",
-														"npm-test":    "DrupalSkeletor\\NpmPackage::npmTest",
-														"post-install-cmd": [
-															"DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-															"DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
-															"@composer npm-install",
-															"@composer npm-build"
-														],
-												}
-											</code></pre>
-											<figcaption class="path">composer.json:scripts & composer.json:autoload</figcaption>
-										</figure>
-										<figure class="code">
-											<pre><code class="lang-php">
-												namespace DrupalSkeletor;
+							<div class="flex-row">
+								<figure class="code">
+									<figcaption>Register a post-install command...</figcaption>
+									<pre><code class="lang-php">
+										 "autoload": {
+												"classmap": [
+													...
+													"scripts/skeletor/NpmPackage.php"
+												]
+										 },
+										 "scripts": {
+												...
+												"npm-install": "DrupalSkeletor\\NpmPackage::npmInstall",
+												"npm-build":   "DrupalSkeletor\\NpmPackage::npmBuild",
+												"npm-test":    "DrupalSkeletor\\NpmPackage::npmTest",
+												"post-install-cmd": [
+													 "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+													 "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+													 "@composer npm-install",
+													 "@composer npm-build"
+										    ],
+											}
+										</code></pre>
+										<figcaption class="path">composer.json:scripts & composer.json:autoload</figcaption>
+									</figure>
+									<figure class="code">
+										<figcaption>... then build it!</figcaption>
+										<pre><code class="lang-php">
+											namespace DrupalSkeletor;
 
-												use Composer\Script\Event;
-												use Symfony\Component\Finder\Finder;
-												use DrupalFinder\DrupalFinder;
+											use Composer\Script\Event;
+											use Symfony\Component\Finder\Finder;
+											use DrupalFinder\DrupalFinder;
+
+											/**
+											 * Class NpmPackage.
+											 *
+											 * @package DrupalSkeletor
+											 */
+											class NpmPackage {
 
 												/**
-												 * Class NpmPackage.
+												 * NPM Install.
 												 *
-												 * @package DrupalSkeletor
+												 * @param \Composer\Script\Event $event
+												 *   Event to echo output.
 												 */
-												class NpmPackage {
-
-													/**
-													 * NPM Install.
-													 *
-													 * @param \Composer\Script\Event $event
-													 *   Event to echo output.
-													 */
-													public static function npmInstall(Event $event) {
-														static::runNpmCommand('install', $event);
-													}
-												...
-											</code></pre>
-											<figcaption class="path">scripts/skeletor/NpmPackage.php</figcaption>
-										</figure>
-									</div>
+												public static function npmInstall(Event $event) {
+													static::runNpmCommand('install', $event);
+												}
+											...
+										</code></pre>
+										<figcaption class="path">scripts/skeletor/NpmPackage.php</figcaption>
+									</figure>
 								</div>
-							</div>
 						</div>
 					</section>
 				</section>
@@ -1007,7 +995,6 @@ All files                    |    88.46 |    88.89 |    77.78 |    88.46 |      
 										}
 									}
 								</code></pre>
-								<!-- figcaption element is optional, can be placed above or below code  -->
 								<figcaption class="path">/schemas/attendeesSchema.json</figcaption>
 							</figure>
 						</div>
